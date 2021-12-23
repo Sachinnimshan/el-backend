@@ -22,7 +22,7 @@ app.post('/signin', function(req,res){
     if (email && password) {
 		db.query('SELECT * FROM users WHERE email = ? AND password = ?', [email, password], function(error, results, fields) {
 			if (results.length > 0) {
-				res.status(200).send({data: results.name, message: "Login Successful"});
+				res.status(200).send({data: results, message: "Login Successful"});
 			} else {
 				res.send({message:'Invalid Username or Password!'});
 			}			
